@@ -22,4 +22,3 @@ print(foo.x)
 
 foo.x = 10
 print(foo.x)
-
