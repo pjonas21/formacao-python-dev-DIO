@@ -1,16 +1,17 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import time
+from threading import Thread
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def carro(velocidade, piloto):
+    trajeto = 0
+    while trajeto <= 100:
+        print(f'Piloto: {piloto} || Carro: {trajeto}')
+        trajeto += velocidade
+        time.sleep(0.5)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+t_carro1 = Thread(target=carro, args=[1, 'Joao'])
+t_carro2 = Thread(target=carro, args=[2, 'Andre'])
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+t_carro1.start()
+t_carro2.start()
